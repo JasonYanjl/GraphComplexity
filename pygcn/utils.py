@@ -823,7 +823,7 @@ def show_adj_matrix(edges, labels):
         plt.show()
 
 
-def load_data(path="../data/BRCA/", dataset="BRCA", rate=1, add_edge_mutual=1, del_edge_mutual=1, output=""):
+def load_data(path="../data/cora/", dataset="cora", rate=1, add_edge_mutual=1.1, del_edge_mutual=0.9, output=""):
     """Load citation network dataset (cora only for now)"""
     print('Loading {} dataset...'.format(dataset))
     abs_path = os.path.dirname(os.path.abspath(__file__))

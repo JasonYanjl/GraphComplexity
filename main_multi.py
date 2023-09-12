@@ -106,8 +106,8 @@ tot_val_acc = 0
 TOT_ROUND = 10
 res_list = []
 for i in range(TOT_ROUND):
-    idx_all = np.arange(features.shape[0])
-    np.random.shuffle(idx_all)
+    # idx_all = np.arange(features.shape[0])
+    # np.random.shuffle(idx_all)
     # idx_train = idx_all[np.arange(200)]
     # idx_val = idx_all[np.arange(200, 300)]
     # idx_test = idx_all[np.arange(300, 505)]
@@ -115,12 +115,16 @@ for i in range(TOT_ROUND):
     # idx_val = idx_all[np.arange(300, 350)]
     # idx_test = idx_all[np.arange(200, 300)]
     # idx_test = idx_val
-    idx_train = idx_all[np.arange(500)]
-    idx_val = idx_all[np.arange(500, 1500)]
-    idx_test = idx_all[np.arange(1500, 2500)]
-    idx_train = torch.LongTensor(idx_train)
-    idx_val = torch.LongTensor(idx_val)
-    idx_test = torch.LongTensor(idx_test)
+    # idx_train = idx_all[np.arange(500)]
+    # idx_val = idx_all[np.arange(500, 1500)]
+    # idx_test = idx_all[np.arange(1500, 2500)]
+    idx_train = torch.LongTensor(idx_train.cpu())
+    idx_val = torch.LongTensor(idx_val.cpu())
+    idx_test = torch.LongTensor(idx_test.cpu())
+    if args.cuda:
+        idx_train = idx_train.cuda()
+        idx_val = idx_val.cuda()
+        idx_test = idx_test.cuda()
 
     model = GCN(nfeat=features.shape[1],
                 nhid=args.hidden,
