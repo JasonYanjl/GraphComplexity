@@ -1021,7 +1021,7 @@ def load_data(path="../data/BRCA/", dataset="BRCA", rate=1, add_edge_mutual=1, d
     if noise_rate != 0:
         edges = add_noise(labels.shape[0], edges, int(edges.shape[0] * noise_rate))
 
-    prev_csv_matrix = save_graph2csv(labels.shape[0], edges, labels)
+    # prev_csv_matrix = save_graph2csv(labels.shape[0], edges, labels)
     # save_graph2json(labels.shape[0], edges, labels)
     # exit(0)
 
@@ -1051,7 +1051,7 @@ def load_data(path="../data/BRCA/", dataset="BRCA", rate=1, add_edge_mutual=1, d
         # edges = addedges_random(labels.shape[0], edges, int(edges.shape[0] * (edge_mutual - 1)))
 
     # np.savez(output, lbl=ori_label, edge=edges)
-    save_graph2csv(labels.shape[0], edges, labels, prev_csv_matrix)
+    # save_graph2csv(labels.shape[0], edges, labels, prev_csv_matrix)
     # save_graph2json(labels.shape[0], edges, labels)
     # exit(0)
 
@@ -1059,7 +1059,7 @@ def load_data(path="../data/BRCA/", dataset="BRCA", rate=1, add_edge_mutual=1, d
 
     # np.random.shuffle(edges)
     # edges = edges[:3024]
-    calc_complexity_fast(labels.shape[0], edges)
+    # calc_complexity_fast(labels.shape[0], edges)
     # calc_complexity(labels.shape[0], edges)
 
     # if add_edge_mutual > 1 or del_edge_mutual < 1:
@@ -1107,16 +1107,16 @@ def load_data(path="../data/BRCA/", dataset="BRCA", rate=1, add_edge_mutual=1, d
     # exit(0)
     # calc_delta_edge(labels, edges, mutual_info, dis)
     # exit(0)
-    print(labels.shape)
+    # print(labels.shape)
     # print(torch.max(labels))
-    print(edges.shape)
-    calc_homophily(labels, edges)
+    # print(edges.shape)
+    # calc_homophily(labels, edges)
     # calc_ptoq_edge(labels, etdges, mutual_info, dis)
     # calc_ptoq_edge_delete(labels, edges, mutual_info, dis)
     # exit(0)
 
     # calc_ptoq_edge_trainval(labels, edges, mutual_info, dis, train_mask, val_mask)
-    exit(0)
+    # exit(0)
 
     if train_mask is not None and val_mask is not None and test_mask is not None:
         idx_train = torch.LongTensor(torch.nonzero(torch.tensor(train_mask)).reshape(-1))
